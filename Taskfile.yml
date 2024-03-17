@@ -1,0 +1,22 @@
+version: "3"
+
+tasks:
+  slog-run-server:
+    dir: sldemo
+    deps: [_direnv-allow] #Make sure the envvars are allowed after a file update
+    cmds:
+      - cmd: go run ./cmd/server/main.go
+        ignore_error: true
+
+  zap-run-server:
+    dir: zapdemo
+    deps: [_direnv-allow] #Make sure the envvars are allowed after a file update
+    cmds:
+      - cmd: go run ./cmd/server/main.go
+        ignore_error: true
+
+  # Internal Tasks
+  _direnv-allow:
+    internal: true
+    cmds:
+      - direnv allow
