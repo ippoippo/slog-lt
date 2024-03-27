@@ -1,6 +1,13 @@
 version: "3"
 
 tasks:
+  slog-run-basic:
+    dir: sldemo
+    deps: [_direnv-allow] #Make sure the envvars are allowed after a file update
+    cmds:
+      - cmd: go run ./cmd/basic/main.go
+        ignore_error: true
+
   slog-run-server:
     dir: sldemo
     deps: [_direnv-allow] #Make sure the envvars are allowed after a file update
